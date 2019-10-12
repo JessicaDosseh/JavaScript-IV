@@ -1,0 +1,1 @@
+console.log(Father.stabBack()); // Health Points - 5
