@@ -77,6 +77,7 @@ class Humanoid extends CharacterStats {
     this.language = humanAttributes.language; 
     this.V_newhealthPoints = humanAttributes.healthPoints - 5; 
     this.H_newhealthPoints = this.V_newhealthPoints + 1; 
+    this.Total_healthPoints = this.H_newhealthPoints;
   }
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`

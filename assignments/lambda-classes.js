@@ -29,6 +29,15 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`); 
   }
+  subtractPoints(student, subject, grade) {
+    console.log(`${student} grade in ${subject}: `);
+    console.log(`Student grade: ${grade} - New Student grade: ${grade - Math.random()}`);
+  }
+  addPoints(student, subject, grade) {
+    console.log(`${student} grade in ${subject}: `);
+    let newGrade = grade + Math.random();
+    console.log(`Student grade: ${grade} - New Student grade: ${newGrade}`);
+  }
 }
 
 // Student CLASS -- chiled
@@ -38,11 +47,15 @@ class Student extends Person {
     super(attrs); 
     this.previousBackground = attrs.previousBackground; 
     this.className = attrs.className; 
-    this.favSubjects = attrs.favSubjects; // creates an array
+    this.grade = attrs.grade; 
+    this.fafavSubjects = attrs.favSubjects;
   }
   // Methods: 
-  listsSubjects(favSubjects) {
-    console.log(`My favorite subjects are: ${favSubjects}`); // prints out an array
+  listsSubjects(fafavSubjects) {
+    console.log(`Hello my name is ${jane.name}. My favorite subjects are: `);
+    for (let i = 0; i < fafavSubjects.length; i++) { 
+    console.log(`subject # ${i + 1}:  ${fafavSubjects[i]}`); // prints out an array
+    }
   }
   PRAssignment(subject) {
     console.log(`${this.name} has submitted a PR for ${subject}`); 
@@ -69,16 +82,45 @@ class ProjectManager extends Instructor {
   }
 }
 
-// Calling action: 
 
+
+// Calling action: 
 const fred = new Instructor ({
   name: 'Fred',
   location: 'Bedrock',
   age: 37,
   favLanguage: 'JavaScript',
-  specialty: 'Front-end',
+  specialty: 'Back-end',
   catchPhrase: `Don't forget the homies`, 
 }); 
 
-console.log(fred); 
+const jane = new Student ({
+  name: 'Jane',
+  location: 'Verginia',
+  age: 25,
+  previousBackground: 'Teacher',
+  className: 'WEBPT11', 
+  grade: 87,
+  favSubjects: ['Html', 'CSS', 'JavaScript'],
+});
+
+const eric = new ProjectManager ({
+  name: 'Eric',
+  location: 'Colorado',
+  age: 30,
+  favLanguage: 'JavaScript',
+  specialty: 'Front-end',
+  catchPhrase: `say what`, 
+  gradClassName: 'WEBPT11',
+  favInstructor: 'Fred',
+});
+
+
+console.log(jane.listsSubjects(jane.fafavSubjects));
+console.log(jane.grade);
+console.log(fred.specialty); 
 console.log(fred.demo(`JavaScript - IV`)); 
+console.log(fred.subtractPoints(jane.name, `JavaScript - IV`, jane.grade));
+console.log(fred.addPoints(jane.name, `JavaScript - IV`, jane.grade));
+
+
