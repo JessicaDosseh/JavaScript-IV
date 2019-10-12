@@ -1,0 +1,1 @@
+console.log(`${this.name} initial health points:  ${V_newhealthPoints} -- new health points total: ${H_newhealthPoints}.`);
